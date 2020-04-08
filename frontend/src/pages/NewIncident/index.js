@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./styles.css";
-
+import { toast } from "react-toastify";
 import { Link, useHistory } from "react-router-dom";
 import { FiArrowLeft } from "react-icons/fi";
 
@@ -30,10 +30,11 @@ export default function NewIncident() {
           Authorization: ongId,
         },
       });
+      toast.success("Caso cadastrado com sucesso.");
 
       history.push("/profile");
     } catch (err) {
-      alert("Erro ao cadastrar caso.");
+      toast.error("Erro ao cadastrar caso.");
     }
   }
 

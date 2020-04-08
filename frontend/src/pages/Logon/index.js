@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./styles.css";
 import { FiLogIn } from "react-icons/fi";
 import { Link, useHistory } from "react-router-dom";
-
+import { toast } from "react-toastify";
 import heroesImage from "../../assets/heroes.png";
 import logoImage from "../../assets/logo.svg";
 
@@ -23,7 +23,7 @@ export default function Logon() {
 
       history.push("/profile");
     } catch (err) {
-      alert("Falha no login, tente novamente!");
+      toast.error("Falha no login, tente novamente!");
     }
   }
 

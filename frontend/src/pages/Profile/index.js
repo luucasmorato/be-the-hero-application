@@ -4,6 +4,7 @@ import { Link, useHistory } from "react-router-dom";
 import api from "../../services/api";
 import logoImage from "../../assets/logo.svg";
 import { FiPower, FiTrash2 } from "react-icons/fi";
+import { toast } from "react-toastify";
 
 export default function Profile() {
   const ongName = localStorage.getItem("ongName");
@@ -34,10 +35,11 @@ export default function Profile() {
           Authorization: ongId,
         },
       });
-      alert("Caso deletado com sucesso");
+
+      toast.success("Caso deletado com sucesso.");
       setIncidents(incidents.filter((incident) => incident.id !== id));
     } catch (err) {
-      alert("Ocorreu um erro ao deletar caso.");
+      toast.error("Ocorreu um erro ao deletar caso.");
     }
   }
 
